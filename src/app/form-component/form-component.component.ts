@@ -1,10 +1,14 @@
-import { Component } from '@angular/core';
+import { Component  } from '@angular/core';
 
 @Component({
-  selector: 'form-component',
+  selector: 'app-form-component',
   templateUrl: './form-component.component.html',
   styleUrls: ['./form-component.component.css']
 })
 export class FormComponentComponent {
+  firstName: string = '';
 
+  log(value: string) {
+    console.log(value);
+  }
 }

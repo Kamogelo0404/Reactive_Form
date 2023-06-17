@@ -1,13 +1,19 @@
 <form class="mt-5 ms-5 me-5 m">
     <div class="form-group">
-     <label for="First Name" class="form-label ms-2 ">First Name </label>
-     <input id="First Name" class="form-control mb-3" type="text">
-     <label for="Comment" class="form-label ms-2" >Comment </label>
-     <textarea id="Comment" class="form-control mb-4" rows="10" cols="30"></textarea>
+     <label for="firstName" class="form-label ms-2 ">First Name </label>
+     <input  required minlength="3" maxlength="10" pattern="Mashalane" [(ngModel)]="firstName" name="firstName"  #firstNameVar="ngModel" (ngModelChange)="log(firstNameVar.value)" id="firstName" type="text" class="form-control mb-3">
+    <div class="alert alert-danger" *ngIf="firstNameVar.touched && !firstNameVar.valid">
+        <div *ngIf="firstNameVar.errors?.['required']"> First Name is required!</div>
+        <div *ngIf="firstNameVar.errors?.['minlength']"> First name should minimum of {{firstNameVar.errors?.['minlength'].requiredLength}} characters!</div>
+        <div *ngIf="firstNameVar.errors?.['maxlength']"> First Name must not exceed maximum of 10 characters!</div>
+         <div *ngIf="firstNameVar.errors?.['pattern']"> invalid structure!</div>
     </div>
-
+    
+    </div>
+    
     <div class="form-group">
+        <label for="Comment" class="form-label ms-2" >Comment </label>
+        <textarea id="Comment" class="form-control mb-4" rows="10" cols="30"></textarea>
         <button class="btn btn-primary">Submit</button>
        </div>
-    
 </form>
