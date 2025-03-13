@@ -7,6 +7,7 @@ import { Component  } from '@angular/core';
 })
 export class FormComponentComponent {
   firstName: string = '';
+  lastName: string = '';
 
   log(value: string) {
     console.log(value);
