@@ -1,27 +1,39 @@
 <form class="mt-5 ms-5 me-5 m">
     <div class="form-group">
-     <label for="firstName" class="form-label ms-2 ">First Name </label>
-     <input  required minlength="3" maxlength="10" pattern="Kamogelo" [(ngModel)]="firstName" name="firstName"  #firstNameVar="ngModel" (ngModelChange)="log(firstNameVar.value)" id="firstName" type="text" class="form-control mb-3">
-    <div class="alert alert-danger" *ngIf="firstNameVar.touched && !firstNameVar.valid">
-        <div *ngIf="firstNameVar.errors?.['required']"> First Name is required!</div>
-        <div *ngIf="firstNameVar.errors?.['minlength']"> First name should minimum of {{firstNameVar.errors?.['minlength'].requiredLength}} characters!</div>
-        <div *ngIf="firstNameVar.errors?.['maxlength']"> First Name must not exceed maximum of 10 characters!</div>
-         <div *ngIf="firstNameVar.errors?.['pattern']"> invalid structure!</div>
+        <label for="firstName" class="form-label ms-2">
+            First Name <span class="text-danger">*</span>
+        </label>
+        <input required minlength="3" maxlength="10" pattern="Kamogelo" 
+               [(ngModel)]="firstName" name="firstName" 
+               #firstNameVar="ngModel" (ngModelChange)="log(firstNameVar.value)" 
+               id="firstName" type="text" class="form-control mb-3">
+    
+        <div class="alert alert-danger" *ngIf="firstNameVar.touched && !firstNameVar.valid">
+            <div *ngIf="firstNameVar.errors?.['required']"> First Name is required!</div>
+            <div *ngIf="firstNameVar.errors?.['minlength']"> First name should be a minimum of {{firstNameVar.errors?.['minlength'].requiredLength}} characters!</div>
+            <div *ngIf="firstNameVar.errors?.['maxlength']"> First Name must not exceed a maximum of 10 characters!</div>
+            <div *ngIf="firstNameVar.errors?.['pattern']"> Invalid structure!</div>
+        </div>
     </div>
     
-    </div>
 
     <div class="form-group">
-        <label for="lastName" class="form-label ms-2 ">Last Name </label>
-        <input  required minlength="3" maxlength="10" pattern="Nkadimeng" [(ngModel)]="lastName" name="LastName"  #lastNameVar="ngModel" (ngModelChange)="log(lastNameVar.value)" id="lastName" type="text" class="form-control mb-3">
-       <div class="alert alert-danger" *ngIf=" lastNameVar.touched && !lastNameVar.valid">
-           <div *ngIf="lastNameVar.errors?.['required']"> Last Name is required!</div>
-           <div *ngIf="lastNameVar.errors?.['minlength']"> Last name should minimum of {{lastNameVar.errors?.['minlength'].requiredLength}} characters!</div>
-           <div *ngIf="lastNameVar.errors?.['maxlength']"> Last Name must not exceed maximum of 10 characters!</div>
-            <div *ngIf="lastNameVar.errors?.['pattern']"> invalid structure!</div>
-       </div>
-       
-       </div>
+        <label for="lastName" class="form-label ms-2">
+            Last Name <span class="text-danger">*</span>
+        </label>
+        <input required minlength="3" maxlength="10" pattern="Nkadimeng" 
+               [(ngModel)]="lastName" name="lastName"  
+               #lastNameVar="ngModel" (ngModelChange)="log(lastNameVar.value)" 
+               id="lastName" type="text" class="form-control mb-3">
+    
+        <div class="alert alert-danger" *ngIf="lastNameVar.touched && !lastNameVar.valid">
+            <div *ngIf="lastNameVar.errors?.['required']"> Last Name is required!</div>
+            <div *ngIf="lastNameVar.errors?.['minlength']"> Last name should be a minimum of {{lastNameVar.errors?.['minlength'].requiredLength}} characters!</div>
+            <div *ngIf="lastNameVar.errors?.['maxlength']"> Last Name must not exceed a maximum of 10 characters!</div>
+            <div *ngIf="lastNameVar.errors?.['pattern']"> Invalid structure!</div>
+        </div>
+    </div>
+    
     
     <div class="form-group">
         <label for="Comment" class="form-label ms-2" >Comment </label>
